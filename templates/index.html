@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset ="UTF-8">
+    <title>
+        Cauta floare
+        </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<h1>Există flori pe care nu ți le mai amintești vizual?</h1>
+<form method="post">
+    <input type="text" name="floare" placeholder="Introdu numele florii pe care vrei sa o vezi: " required>
+    <button type="submit">Cauta</button>
+</form>
+{% if image_url %}
+  <h2>Rezultat: </h2>
+  <img src="{{ url_for('static', filename=image_url) }}" alt="Floare" width="300">
+{% elif message %}
+   <p style="color:red;">{{ message }}</p>
+{% endif %}
+
+
+</body>
+</html>
